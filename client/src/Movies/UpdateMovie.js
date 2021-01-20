@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams  } from "react-router-dom";
 import axios from "axios";
-import MovieList from "./MovieList";
 
 const initialState = {
   title: '',
@@ -25,7 +24,7 @@ export const UpdateMovie = (props) => {
     .catch(err => console.log(err))
   }, [id]);
 
-  const changeHandler = e => {
+  const handleChange = e => {
     e.persist();
     let name = e.target.name;
     let value = e.target.value;
@@ -54,7 +53,7 @@ export const UpdateMovie = (props) => {
         <input
           type="text"
           name="title"
-          onChange={changeHandler}
+          onChange={handleChange}
           placeholder="Title"
           value={movie.title}
         />
@@ -62,7 +61,7 @@ export const UpdateMovie = (props) => {
         <input
           type="text"
           name="director"
-          onChange={changeHandler}
+          onChange={handleChange}
           placeholder="Director"
           value={movie.director}
         />
@@ -70,7 +69,7 @@ export const UpdateMovie = (props) => {
         <input
           type="text"
           name="metascore"
-          onChange={changeHandler}
+          onChange={handleChange}
           placeholder="Metascore"
           value={movie.metascore}
         />
